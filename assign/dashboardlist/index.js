@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
 import { View, Text, StatusBar, TouchableOpacity, StyleSheet } from 'react-native';
-import { Container, Content, List, ListItem, Item, Input, Left, Body, Thumbnail, Separator } from 'native-base';
+import { Container, Content, List, ListItem, Left, Body, Thumbnail, Separator } from 'native-base';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Actions } from 'react-native-router-flux';
 const defaultImage = require('../images/logo.png');
+import { Picker } from '@react-native-community/picker';
 
 
 class ListPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      language: '',
+    };
+  }
 
   render() {
+
     return (
       <Container>
         <StatusBar backgroundColor={'#59ABE3'} barStyle="light-content" />
@@ -24,10 +32,17 @@ class ListPage extends Component {
             </View>
           </View>
           <View style={{ margin: 10 }}>
-            <Item style={styles.itemStyle}>
-              <Icon name="search" size={20} color={'#252625'} />
-              <Input style={styles.searchText} placeholder="Search ...." />
-            </Item>
+            <Picker
+              selectedValue={this.state.language}
+              style={{ height: 50, width: '100%' }}
+              onValueChange={(itemValue) =>
+                this.setState({ language: itemValue })
+              }>
+              <Picker.Item label="Ui Developper" value="Ui Developper" />
+              <Picker.Item label="Mobile Developper" value="Mobile Developper" />
+              <Picker.Item label="Frontend Developper" value="Frontend Developper" />
+              <Picker.Item label="Backend Developper" value="Backend Developper" />
+            </Picker>
           </View>
         </View>
         <Content>
@@ -159,19 +174,6 @@ const styles = StyleSheet.create({
   headerTextContainer: {
     alignSelf: 'center',
     marginLeft: 100
-  },
-  itemStyle: {
-    width: '100%',
-    borderWidth: 10,
-    borderColor: '#59ABE3',
-    height: 30,
-    borderRadius: 20,
-    backgroundColor: 'white',
-    padding: 20,
-  },
-  searchText: {
-    alignSelf: 'center',
-    width: 280
   },
   profilePic: {
     height: 50,
