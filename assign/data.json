@@ -1,48 +1,100 @@
 {
-    "user":[{
-    "id":1,
-    "name":"test1",
-    "age" : "11",
-    "gender":"male",
-    "email" : "test1@gmail.com", "phoneNo" : "9415346313"
-    },
-    {
-    "id" : 2,
-    "name":"test2",
-    "age" : "12",
-    "gender":"male",
-    "email" : "test2@gmail.com", "phoneNo" : "9415346314"
-    },
-    {
-    "id":3,
-    "name":"test3",
-     
-    "age" : "13",
-    "gender":"male",
-    "email" : "test3@gmail.com", "phoneNo" : "9415346315"
-    },
-    {
-    "id":4,
-    "name":"test4",
-    "age" : "14",
-    "gender":"male",
-    "email" : "test4@gmail.com", "phoneNo" : "9415346316"
-    },
-    {
-    "id":5,
-    "name":"test5",
-    "age" : "15",
-    "gender":"male",
-    "email" : "test5@gmail.com", "phoneNo" : "9415346317"
-    },
-    {
-    "id":6,
-    "name":"test6",
-    "age" : "16",
-    "gender":"male",
-    "email" : "test6@gmail.com", "phoneNo" : "9415346318"
-    }
-    
+    "user": [
+        {
+            "id": 1,
+            "name": "Anne Green",
+            "age": "11",
+            "gender": "male",
+            "email": "test1@gmail.com",
+            "key": "mobile developper"
+        },
+        {
+            "id": 2,
+            "name": "Kiran",
+            "age": "12",
+            "gender": "male",
+            "email": "test2@gmail.com",
+            "key": "web developper"
+        },
+        {
+            "id": 3,
+            "name": "SaiTeja",
+            "age": "13",
+            "gender": "male",
+            "email": "test3@gmail.com",
+            "key": "backend developper"
+        },
+        {
+            "id": 4,
+            "name": "Nagaraju",
+            "age": "14",
+            "gender": "male",
+            "email": "test4@gmail.com",
+            "key": "frontend developper"
+        },
+        {
+            "id": 5,
+            "name": "Venkatesh",
+            "age": "15",
+            "gender": "male",
+            "email": "test5@gmail.com",
+            "key": "mobile developper"
+        },
+        {
+            "id": 6,
+            "name": "Harsha",
+            "age": "16",
+            "gender": "male",
+            "email": "test6@gmail.com",
+            "key": "backend developper"
+        },
+        {
+            "id": 7,
+            "name": "Sharma",
+            "age": "11",
+            "gender": "male",
+            "email": "test1@gmail.com",
+            "key": "mobile developper"
+        },
+        {
+            "id": 8,
+            "name": "Teja",
+            "age": "12",
+            "gender": "male",
+            "email": "test2@gmail.com",
+            "key": "web developper"
+        },
+        {
+            "id": 9,
+            "name": "Kranthi",
+            "age": "13",
+            "gender": "male",
+            "email": "test3@gmail.com",
+            "key": "backend developper"
+        },
+        {
+            "id": 10,
+            "name": "Pooja",
+            "age": "14",
+            "gender": "female",
+            "email": "test4@gmail.com",
+            "key": "frontend developper"
+        },
+        {
+            "id": 11,
+            "name": "harika",
+            "age": "15",
+            "gender": "female",
+            "email": "test5@gmail.com",
+            "key": "web developper"
+        },
+        {
+            "id": 12,
+            "name": "hareesh",
+            "age": "16",
+            "gender": "male",
+            "email": "test6@gmail.com",
+            "key": "mobile developper"
+        }
     ]
-    }
-    
+}

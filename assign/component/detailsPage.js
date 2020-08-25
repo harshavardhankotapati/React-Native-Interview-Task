@@ -9,9 +9,8 @@ const defaultImage = require('../images/logo.png');
 class DetailsPage extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-        };
     }
+
     componentDidMount() {
         BackHandler.addEventListener('hardwareBackPress', () => {
             Actions.dashBoardList();
@@ -35,7 +34,7 @@ class DetailsPage extends Component {
                                     <TouchableOpacity style={styles.touchableStyle} >
                                         <Thumbnail source={defaultImage} style={styles.profilePic} />
                                     </TouchableOpacity>
-                                    <Text style={{ color: 'white', fontSize: 18 }}>Anne Green</Text>
+                                    <Text style={{ color: 'white', fontSize: 18 }}>{this.props.a.name}</Text>
                                     <Text style={{ color: 'green', fontSize: 12, fontWeight: 'bold' }}>Project Management</Text>
                                 </View>
                             </View>
@@ -53,36 +52,36 @@ class DetailsPage extends Component {
                                 <Text>Title</Text>
                             </ListItem>
                             <ListItem style={{ marginTop: -35 }} >
-                                <Text>Vp Product Management</Text>
+                                <Text>{this.props.a.key}</Text>
                             </ListItem>
                             <ListItem itemHeader >
                                 <Text >Reporting To</Text>
                             </ListItem>
                             <ListItem style={{ marginTop: -35 }} >
                                 <Body>
-                                    <Text>John Smith</Text>
+                                    <Text>{this.props.a.email}</Text>
                                 </Body>
                                 <Right>
                                     <Thumbnail style={{ width: 25, height: 25 }} source={defaultImage} />
                                 </Right>
                             </ListItem>
                             <ListItem itemHeader>
-                                <Text >Department</Text>
+                                <Text >Age</Text>
                             </ListItem>
                             <ListItem style={{ marginTop: -35 }} >
-                                <Text>Release Management</Text>
+                                <Text>{this.props.a.age}</Text>
                             </ListItem>
                             <ListItem itemHeader>
                                 <Text >Emp Type</Text>
                             </ListItem>
                             <ListItem style={{ marginTop: -35 }} >
-                                <Text>Customer Facing</Text>
+                                <Text>{this.props.a.key}</Text>
                             </ListItem>
                             <ListItem itemHeader>
-                                <Text >Wiki</Text>
+                                <Text >Gender</Text>
                             </ListItem>
                             <ListItem style={{ marginTop: -35 }} >
-                                <Text>D7-132</Text>
+                                <Text>{this.props.a.gender}</Text>
                             </ListItem>
                         </List>
                     </Content>

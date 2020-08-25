@@ -1,21 +1,59 @@
 import React, { Component } from 'react';
 import { View, Text, StatusBar, TouchableOpacity, StyleSheet } from 'react-native';
-import { Container, Content, List, ListItem, Left, Body, Thumbnail, Separator } from 'native-base';
+import { Container, Content, List, ListItem, Left, Body, Thumbnail } from 'native-base';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Actions } from 'react-native-router-flux';
 const defaultImage = require('../images/logo.png');
 import { Picker } from '@react-native-community/picker';
-
+import data from '../data.json'
 
 class ListPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       language: '',
+      list: [],
+      result: []
     };
   }
 
+  componentDidMount() {
+    this.setState({ list: this.state.list.concat(data.user) })
+  }
+
+  filter = (v) => {
+    let arr = []
+    data.user.map((a, b) => {
+      if (v.toString().toLowerCase() === a.key.toString().toLowerCase()) {
+        arr.push(a)
+      }
+    })
+    if (arr.length !== 0) {
+      this.setState({ result: this.state.result.concat(arr) })
+      this.setState({ list: [] })
+      this.setState({ list: arr })
+    }
+  }
+
   render() {
+    const list = this.state.list.map((a, b) => {
+      return (
+        <ListItem avatar key={b}>
+          <Left>
+            <TouchableOpacity onPress={() => Actions.details({ a: a })} >
+              <Thumbnail source={defaultImage} style={styles.profilePic} />
+            </TouchableOpacity>
+          </Left>
+          <Body>
+            <TouchableOpacity onPress={() => Actions.details({ a: a })} >
+              <Text style={{ fontSize: 16, fontWeight: 'bold' }}>{a.name}</Text>
+              <Text note style={{ fontSize: 14 }}>{a.age}</Text>
+              <Text note style={{ fontSize: 12 }}>{a.key}</Text>
+            </TouchableOpacity>
+          </Body>
+        </ListItem>
+      );
+    });
 
     return (
       <Container>
@@ -35,10 +73,9 @@ class ListPage extends Component {
             <Picker
               selectedValue={this.state.language}
               style={{ height: 50, width: '100%' }}
-              onValueChange={(itemValue) =>
-                this.setState({ language: itemValue })
+              onValueChange={(itemValue) => { this.filter(itemValue), this.setState({ language: itemValue }) }
               }>
-              <Picker.Item label="Ui Developper" value="Ui Developper" />
+              <Picker.Item label="All" value="ALL" />
               <Picker.Item label="Mobile Developper" value="Mobile Developper" />
               <Picker.Item label="Frontend Developper" value="Frontend Developper" />
               <Picker.Item label="Backend Developper" value="Backend Developper" />
@@ -47,102 +84,10 @@ class ListPage extends Component {
         </View>
         <Content>
           <List>
-            <Separator >
-              <Text style={{ fontSize: 18, fontWeight: 'bold' }}>A</Text>
-            </Separator>
-            <ListItem avatar>
-              <Left>
-                <TouchableOpacity onPress={() => Actions.details()} >
-                  <Thumbnail source={defaultImage} style={styles.profilePic} />
-                </TouchableOpacity>
-              </Left>
-              <Body>
-                <TouchableOpacity onPress={() => Actions.details()} >
-                  <Text style={{ fontSize: 16, fontWeight: 'bold' }}>Anne Green</Text>
-                  <Text note style={{ fontSize: 14 }}>Vp Product Management</Text>
-                  <Text note style={{ fontSize: 12 }}>Advisory</Text>
-                </TouchableOpacity>
-              </Body>
-            </ListItem>
-            <ListItem avatar>
-              <Left>
-                <TouchableOpacity onPress={() => Actions.details()} >
-                  <Thumbnail source={defaultImage} style={styles.profilePic} />
-                </TouchableOpacity>
-              </Left>
-              <Body>
-                <TouchableOpacity onPress={() => Actions.details()} >
-                  <Text style={{ fontSize: 16, fontWeight: 'bold' }}>Allan Collins</Text>
-                  <Text note style={{ fontSize: 14 }}>Vp Product Management</Text>
-                  <Text note style={{ fontSize: 12 }}>Advisory</Text>
-                </TouchableOpacity>
-              </Body>
-            </ListItem>
-            <Separator >
-              <Text style={{ fontSize: 18, fontWeight: 'bold' }}>C</Text>
-            </Separator>
-            <ListItem avatar>
-              <Left>
-                <TouchableOpacity onPress={() => Actions.details()} >
-                  <Thumbnail source={defaultImage} style={styles.profilePic} />
-                </TouchableOpacity>
-              </Left>
-              <Body>
-                <TouchableOpacity onPress={() => Actions.details()} >
-                  <Text style={{ fontSize: 16, fontWeight: 'bold' }}>Kumar Pratik</Text>
-                  <Text note style={{ fontSize: 14 }}>Vp Product Management</Text>
-                  <Text note style={{ fontSize: 12 }}>Advisory</Text>
-                </TouchableOpacity>
-              </Body>
-            </ListItem>
-            <ListItem avatar>
-              <Left>
-                <TouchableOpacity onPress={() => Actions.details()} >
-                  <Thumbnail source={defaultImage} style={styles.profilePic} />
-                </TouchableOpacity>
-              </Left>
-              <Body>
-                <TouchableOpacity onPress={() => Actions.details()} >
-                  <Text style={{ fontSize: 16, fontWeight: 'bold' }}>Douglas Hills</Text>
-                  <Text note style={{ fontSize: 14 }}>Vp Product Management</Text>
-                  <Text note style={{ fontSize: 12 }}>Sales</Text>
-                </TouchableOpacity>
-              </Body>
-            </ListItem>
-            <Separator >
-              <Text style={{ fontSize: 18, fontWeight: 'bold' }}>D</Text>
-            </Separator>
-            <ListItem avatar>
-              <Left>
-                <TouchableOpacity onPress={() => Actions.details()} >
-                  <Thumbnail source={defaultImage} style={styles.profilePic} />
-                </TouchableOpacity>
-              </Left>
-              <Body>
-                <TouchableOpacity onPress={() => Actions.details()} >
-                  <Text style={{ fontSize: 16, fontWeight: 'bold' }}>Kumar Pratik</Text>
-                  <Text note style={{ fontSize: 14 }}>Vp Product Management</Text>
-                  <Text note style={{ fontSize: 12 }}>Sales</Text>
-                </TouchableOpacity>
-              </Body>
-            </ListItem>
-            <ListItem avatar>
-              <Left>
-                <TouchableOpacity onPress={() => Actions.details()} >
-                  <Thumbnail source={defaultImage} style={styles.profilePic} />
-                </TouchableOpacity>
-              </Left>
-              <Body>
-                <TouchableOpacity onPress={() => Actions.details()} >
-                  <Text style={{ fontSize: 16, fontWeight: 'bold' }}>Kumar Pratik</Text>
-                  <Text note style={{ fontSize: 14 }}>Vp Product Management</Text>
-                  <Text note style={{ fontSize: 12 }}>Sales</Text>
-                </TouchableOpacity>
-              </Body>
-            </ListItem>
+            {list}
           </List>
         </Content>
-      </Container>
+      </Container >
     );
   }
 }
